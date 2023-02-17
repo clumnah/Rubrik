@@ -1,0 +1,12 @@
+- title: README
+  file: /README
+- title: Backup Validation
+  file: /Backup Validation/Backup Validation
+  sections:
+    - title: Backup Validation and DBCC CHECKDB using Rubrik Live Mount
+      file: /Backup Validation/Backup Validation and DBCC CHECKDB using Rubrik Live Mount
+- title: Object Level Recovery
+  file: /Object Level Recovery/Object Level Recovery
+  sections: 
+    - title: Object Level Recovery Via CDM
+      file: /Object Level Recovery/ObjectLevelRecoveryViaCDM
