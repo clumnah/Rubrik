@@ -1,0 +1,15 @@
+query GetMSSQLAvailabilityGroup($AvailabilityGroupName: [String!], $IsRelic: [String!]) {
+  objects: mssqlTopLevelDescendants(filter: 
+    [
+      {field: IS_RELIC, texts: $IsRelic},
+      {field: IS_REPLICATED, texts: "false"},
+      {field: IS_ARCHIVED, texts: "false"},
+      {field: NAME, texts: $AvailabilityGroupName}
+    ],
+      typeFilter: [MssqlAvailabilityGroup]) {
+    nodes {
+      id
+      name
+    }
+  }
+}
