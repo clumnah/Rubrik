@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Confgiures a database on a SQL Server to retain the log backup locally for a set period of time.
+    Configures a database on a SQL Server to retain the log backup locally for a set period of time.
 .DESCRIPTION
     Rubrik 9.0 introduces a feature called Host Log Retention. This feature enables DBAs to use Rubrik backups with other 3rd parth applications like Delphix or Qlik. 
     Those applications typically read msdb for the backup history which also stores the location of the backup. By default, log backups taken by Rubrik are done using 
