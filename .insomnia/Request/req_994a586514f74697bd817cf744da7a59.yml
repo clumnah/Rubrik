@@ -1,0 +1,34 @@
+_id: req_994a586514f74697bd817cf744da7a59
+type: Request
+parentId: wrk_8b276456db634b88a706a3c8e58da9de
+modified: 1692375150099
+created: 1692374882659
+url: "{{ _.url_endpoint }}"
+name: Get MSSQL Database
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"query GetMSSQLDatabase($instanceID: UUID!, $DatabaseName:
+    [String!]) {\n\tmssqlInstance(fid: $instanceID)
+    {\n\t\tid\n\t\tname\n\t\tdescendantConnection(filter: { field:
+    NAME_EXACT_MATCH, texts: $DatabaseName }) {\n\t\t\tnodes {\n\t\t\t\t... on
+    MssqlDatabase
+    {\n\t\t\t\t\tid\n\t\t\t\t\tname\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}","operationName":"GetMSSQLDatabase","variables":{"instanceID":"13b73a8c-46f1-53a1-9819-f5c67edcc6e7","DatabaseName":"master"}}'
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.3
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.bearer_token }}"
+metaSortKey: 0
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
