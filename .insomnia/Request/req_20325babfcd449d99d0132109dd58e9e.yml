@@ -1,0 +1,40 @@
+_id: req_20325babfcd449d99d0132109dd58e9e
+type: Request
+parentId: fld_957b06f1543c4c30947380467683ca0e
+modified: 1692321071284
+created: 1692316376675
+url: "{{ _.base_url }}api/graphql"
+name: Get MSSQL Instance or Availability Group
+description: ""
+method: POST
+body:
+  mimeType: application/graphql
+  text: '{"query":"query GetMSSQLInstance($Hostname: [String!], \n  $IsRelic:
+    [String!], \n  $IsArchived: [String!],\n  $Instance:
+    [String!],\n\t$ClusterID: [String!]) {\n  objects:
+    mssqlTopLevelDescendants(filter: [\n    {field: NAME, texts: $Hostname},
+    \n    {field: IS_RELIC, texts: $IsRelic}, \n    {field: IS_ARCHIVED, texts:
+    $IsArchived},\n  \t{field: CLUSTER_ID, texts: $ClusterID}]) {\n    nodes
+    {\n      id\n      name\n      objectType\n      ... on PhysicalHost
+    {\n        id\n        name\n        physicalChildConnection(filter:
+    [{field: NAME, texts: $Instance}]) {\n          nodes {\n            ... on
+    MssqlInstance
+    {\n              id\n              name\n              slaAssignment\n              effectiveSlaDomain
+    {\n                name\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}","operationName":"GetMSSQLInstance","variables":{"Hostname":"Rp-SQL22ags-1a.perf.rubrik.com","IsRelic":"false","IsArchived":"false","ClusterID":"39b92c18-d897-4b55-a7f9-17ff178616d0","Instance":"MSSQLSERVER"}}'
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.3
+authentication:
+  type: bearer
+  token: "{{ _.token }}"
+metaSortKey: -1691287582127.0396
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
