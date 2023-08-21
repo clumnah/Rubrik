@@ -48,6 +48,7 @@ param (
     [String]$AccessTokenURI = (op read "op://Rubrik/Gaia Next Service Account/hostname")
 
 )
+#requires -Modules RubrikSecurityCloud
 Import-Module RubrikSecurityCloud
 
 Connect-Rsc -Server $AccessTokenURI -ClientId $ClientID -ClientSecret $ClientSecret
